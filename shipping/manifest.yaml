@@ -25,7 +25,7 @@ spec:
       - name: shipping 
         image: akarapunikhilchandra/shipping:1.0.0 
         envFrom:
-          configMapRef: 
+        - configMapRef: 
             name: shipping 
 --- 
 apiVersion: v1 
