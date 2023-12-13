@@ -1,56 +1,55 @@
 apiVersion: apps/v1 
-kind: Deployment 
+kind: Deployent 
 metadata: 
-  name: user 
+  name: cart
   namespace: roboshop 
   labels: 
-    app: user
-    tier: app 
+    app: cart 
+    tier: app
     project: roboshop 
 spec: 
-  replicas: 1 
+  replicas: 1
   selector:
     matchLabels: 
-      app: user
+      app: cart 
       tier: app 
       project: roboshop 
   template: 
-    metadata: 
+    metadata:  
       labels: 
-        app: user 
+        app: cart 
         tier: app 
         project: roboshop 
     spec: 
-      containers:   
-      - name: user 
-        image: akarapunikhilchandra/user:1.0.0 
+      containers: 
+      - name: cart
+        image: akarapunikhilchandra/cart:1.0.0 
         envFrom: 
-          configMapRef: 
-            name: user 
+        configMapRef: 
+          name: cart 
 ---
 apiVersion: v1 
 kind: Service 
 metadata: 
-  name: user 
+  name: cart
   namespace: roboshop 
 spec: 
   selector: 
-    app: user
+    app: cart 
     tier: app 
     project: roboshop 
   ports: 
-  - name: user-port
-    protocol: TCP
-    port: 8080
+    name: cart-port 
+    protocol: TCP 
+    port: 8080 
     targetPort: 8080 
 --- 
 apiVersion: v1 
 kind: ConfigMap 
 metadata: 
-  name: user
+  name: cart 
   namespace: roboshop 
 data: 
-  MONGO: "true" 
   REDIS_HOST: "redis"
-  MONGO_URL: "mongodb://mongodb:27017/user"
-  
+  CATALOGUE_HOST: "catalogue"
+  CATALOGUE_PORT: "8080" 
