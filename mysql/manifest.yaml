@@ -25,7 +25,7 @@ spec:
       - name: mysql 
         image: akarapunikhilchandra/mysql:1.0.0
         envFrom:
-          configMapRef: 
+        - configMapRef: 
             name: mysql 
 
 --- 
