@@ -32,10 +32,9 @@ metadata:
   namespace: roboshop 
 spec: 
   selector: 
-    matchLabels: 
-      app: redis
-      tier: db
-      project: roboshop
+    app: redis
+    tier: db
+    project: roboshop
   ports: 
   - name: redis-port 
     protocol: TCP
