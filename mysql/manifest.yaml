@@ -39,7 +39,7 @@ spec:
     app: mysql 
     tier: db 
     project: roboshop
-  port:
+  ports:
     name: mysql-port 
     protocol: TCP 
     port: 3306 
